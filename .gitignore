@@ -15,6 +15,7 @@ Obj/
 Generated_Code/
 PrecompiledWeb
 ClientBin/
+*.resources
 
 
 # Local and user files #
@@ -27,6 +28,7 @@ ClientBin/
 *.cache
 *.ignore
 *.vsmdi
+*.userprefs
 
 # Packages #
 ############
