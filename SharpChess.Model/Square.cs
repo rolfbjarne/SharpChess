@@ -53,6 +53,7 @@ namespace SharpChess.Model
             1,  1,  1,  1,  1,  1,  1, 1,    0, 0, 0, 0, 0, 0, 0, 0
         };
 
+		/*
         /// <summary>
         /// The king attackers.
         /// </summary>
@@ -148,6 +149,7 @@ namespace SharpChess.Model
               0,   0,   0,   0,   0,  17,   0,  0,    15,   0,   0,   0,   0,   0,   0,  16, 
               0,   0,   0,   0,   0,   0,  17, 15,     0,   0,   0,   0,   0,   0,   0,   0
         };
+		*/
         #endregion
 
         #region Constructors and Destructors

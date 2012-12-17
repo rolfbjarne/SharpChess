@@ -472,7 +472,7 @@ namespace SharpChess.Model.AI
                     this.MyPlayer.Clock.Start();
                 }
 
-                int score = this.Search.IterativeDeepeningSearch(
+                /*int score = */this.Search.IterativeDeepeningSearch(
                     this.MyPlayer, this.PrincipalVariation, this.ThinkingTimeAllotted, this.ThinkingTimeMaxAllowed);
             }
             catch (ForceImmediateMoveException x)
