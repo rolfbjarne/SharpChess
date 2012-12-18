@@ -611,7 +611,7 @@ namespace SharpChess.Model
         {
             PlayerToPlay.Clock.Start();
             GameResumed();
-            if (PlayerToPlay.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerToPlay.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 MakeNextComputerMove();
             }
@@ -641,13 +641,13 @@ namespace SharpChess.Model
                 return;
             }
 
-            if (PlayerWhite.Intellegence == Player.PlayerIntellegenceNames.Computer
-                && PlayerBlack.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerWhite.Intelligence == Player.PlayerIntelligenceNames.Computer
+                && PlayerBlack.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 return;
             }
 
-            if (PlayerToPlay.OpposingPlayer.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerToPlay.OpposingPlayer.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 if (!PlayerToPlay.Brain.IsPondering)
                 {
@@ -808,14 +808,14 @@ namespace SharpChess.Model
         /// </summary>
         private static void CheckIfAutoNextMove()
         {
-            if (PlayerWhite.Intellegence == Player.PlayerIntellegenceNames.Computer
-                && PlayerBlack.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerWhite.Intelligence == Player.PlayerIntelligenceNames.Computer
+                && PlayerBlack.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 // Dont want an infinate loop of Computer moves
                 return;
             }
 
-            if (PlayerToPlay.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerToPlay.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 if (PlayerToPlay.CanMove)
                 {
@@ -875,16 +875,16 @@ namespace SharpChess.Model
 
             if (xmlnodeGame.GetAttribute("WhitePlayer") != string.Empty)
             {
-                PlayerWhite.Intellegence = xmlnodeGame.GetAttribute("WhitePlayer") == "Human"
-                                               ? Player.PlayerIntellegenceNames.Human
-                                               : Player.PlayerIntellegenceNames.Computer;
+                PlayerWhite.Intelligence = xmlnodeGame.GetAttribute("WhitePlayer") == "Human"
+                                               ? Player.PlayerIntelligenceNames.Human
+                                               : Player.PlayerIntelligenceNames.Computer;
             }
 
             if (xmlnodeGame.GetAttribute("BlackPlayer") != string.Empty)
             {
-                PlayerBlack.Intellegence = xmlnodeGame.GetAttribute("BlackPlayer") == "Human"
-                                               ? Player.PlayerIntellegenceNames.Human
-                                               : Player.PlayerIntellegenceNames.Computer;
+                PlayerBlack.Intelligence = xmlnodeGame.GetAttribute("BlackPlayer") == "Human"
+                                               ? Player.PlayerIntelligenceNames.Human
+                                               : Player.PlayerIntelligenceNames.Computer;
             }
 
             if (xmlnodeGame.GetAttribute("BoardOrientation") != string.Empty)
@@ -1000,7 +1000,7 @@ namespace SharpChess.Model
             move.EnemyStatus = move.Piece.Player.OpposingPlayer.Status;
             PlayerToPlay.Clock.Stop();
             MoveHistory.Last.TimeStamp = PlayerToPlay.Clock.TimeElapsed;
-            if (PlayerToPlay.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (PlayerToPlay.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 WinBoard.SendMove(move);
                 if (!PlayerToPlay.OpposingPlayer.CanMove)
@@ -1148,9 +1148,9 @@ namespace SharpChess.Model
             xmlnodeGame.SetAttribute("FEN", FenStartPosition == Fen.GameStartPosition ? string.Empty : FenStartPosition);
             xmlnodeGame.SetAttribute("TurnNo", TurnNo.ToString(CultureInfo.InvariantCulture));
             xmlnodeGame.SetAttribute(
-                "WhitePlayer", PlayerWhite.Intellegence == Player.PlayerIntellegenceNames.Human ? "Human" : "Computer");
+                "WhitePlayer", PlayerWhite.Intelligence == Player.PlayerIntelligenceNames.Human ? "Human" : "Computer");
             xmlnodeGame.SetAttribute(
-                "BlackPlayer", PlayerBlack.Intellegence == Player.PlayerIntellegenceNames.Human ? "Human" : "Computer");
+                "BlackPlayer", PlayerBlack.Intelligence == Player.PlayerIntelligenceNames.Human ? "Human" : "Computer");
             xmlnodeGame.SetAttribute(
                 "BoardOrientation", Board.Orientation == Board.OrientationNames.White ? "White" : "Black");
             xmlnodeGame.SetAttribute("Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());

@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Brain.cs" company="SharpChess.com">
 //   SharpChess.com
 // </copyright>
@@ -246,8 +246,8 @@ namespace SharpChess.Model.AI
         /// </summary>
         public void StartPondering()
         {
-            if (this.MyPlayer.Intellegence == Player.PlayerIntellegenceNames.Computer
-                && this.MyPlayer.OpposingPlayer.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (this.MyPlayer.Intelligence == Player.PlayerIntelligenceNames.Computer
+                && this.MyPlayer.OpposingPlayer.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 // Can't both ponder at the same time
                 return;
@@ -268,7 +268,7 @@ namespace SharpChess.Model.AI
                 }
 
                 if (!this.IsThinking && !this.MyPlayer.OpposingPlayer.Brain.IsThinking
-                    && this.MyPlayer.OpposingPlayer.Intellegence == Player.PlayerIntellegenceNames.Computer
+                    && this.MyPlayer.OpposingPlayer.Intelligence == Player.PlayerIntelligenceNames.Computer
                     && Game.PlayerToPlay == this.MyPlayer)
                 {
                     this.IsPondering = true;
@@ -289,7 +289,7 @@ namespace SharpChess.Model.AI
             }
 
             // Send draw result is playing WinBoard
-            if (WinBoard.Active && this.MyPlayer.Intellegence == Player.PlayerIntellegenceNames.Computer)
+            if (WinBoard.Active && this.MyPlayer.Intelligence == Player.PlayerIntelligenceNames.Computer)
             {
                 if (this.MyPlayer.CanClaimThreeMoveRepetitionDraw)
                 {

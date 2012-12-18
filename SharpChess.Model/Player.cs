@@ -74,7 +74,7 @@ namespace SharpChess.Model
         /// <summary>
         /// Player intellegence: Human or Computer.
         /// </summary>
-        public enum PlayerIntellegenceNames
+        public enum PlayerIntelligenceNames
         {
             /// <summary>
             ///   Human player.
@@ -246,7 +246,7 @@ namespace SharpChess.Model
         /// <summary>
         ///   Gets or sets a value indicating whether the player's intellegence is human or computer.
         /// </summary>
-        public PlayerIntellegenceNames Intellegence { get; set; }
+        public PlayerIntelligenceNames Intelligence { get; set; }
 
         /// <summary>
         ///   Gets a value indicating whether the player is in check.
@@ -399,7 +399,7 @@ namespace SharpChess.Model
                 // TODO 3MR not working, investigate.i.e. computer doesn't avoid move.
                 if (Game.MoveHistory.Count > 0 && Game.MoveHistory.Last.IsThreeMoveRepetition)
                 {
-                    intPoints += this.Intellegence == PlayerIntellegenceNames.Human ? 1000000000 : 0;
+                    intPoints += this.Intelligence == PlayerIntelligenceNames.Human ? 1000000000 : 0;
                 }
 
                 if (this.HasCastled)

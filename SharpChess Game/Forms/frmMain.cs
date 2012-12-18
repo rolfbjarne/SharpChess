@@ -2690,10 +2690,10 @@ namespace SharpChess
                 pic.Enabled = !WinBoard.Active && Game.PlayerToPlay.CanMove; // && (!Game.IsPaused)
             }
 
-            this.cboIntellegenceWhite.SelectedIndex = Game.PlayerWhite.Intellegence == Player.PlayerIntellegenceNames.Human
+            this.cboIntellegenceWhite.SelectedIndex = Game.PlayerWhite.Intelligence == Player.PlayerIntelligenceNames.Human
                                                           ? INTELLEGENCE_HUMAN
                                                           : INTELLEGENCE_COMPUTER;
-            this.cboIntellegenceBlack.SelectedIndex = Game.PlayerBlack.Intellegence == Player.PlayerIntellegenceNames.Human
+            this.cboIntellegenceBlack.SelectedIndex = Game.PlayerBlack.Intelligence == Player.PlayerIntelligenceNames.Human
                                                           ? INTELLEGENCE_HUMAN
                                                           : INTELLEGENCE_COMPUTER;
         }
@@ -2872,9 +2872,9 @@ namespace SharpChess
         /// </param>
         private void cboIntellegenceBlack_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Game.PlayerBlack.Intellegence = this.cboIntellegenceBlack.SelectedIndex == INTELLEGENCE_HUMAN
-                                                ? Player.PlayerIntellegenceNames.Human
-                                                : Player.PlayerIntellegenceNames.Computer;
+            Game.PlayerBlack.Intelligence = this.cboIntellegenceBlack.SelectedIndex == INTELLEGENCE_HUMAN
+                                                ? Player.PlayerIntelligenceNames.Human
+                                                : Player.PlayerIntelligenceNames.Computer;
         }
 
         /// <summary>
@@ -2888,9 +2888,9 @@ namespace SharpChess
         /// </param>
         private void cboIntellegenceWhite_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Game.PlayerWhite.Intellegence = this.cboIntellegenceWhite.SelectedIndex == INTELLEGENCE_HUMAN
-                                                ? Player.PlayerIntellegenceNames.Human
-                                                : Player.PlayerIntellegenceNames.Computer;
+            Game.PlayerWhite.Intelligence = this.cboIntellegenceWhite.SelectedIndex == INTELLEGENCE_HUMAN
+                                                ? Player.PlayerIntelligenceNames.Human
+                                                : Player.PlayerIntelligenceNames.Computer;
         }
 
         /// <summary>

@@ -28,21 +28,21 @@ namespace SharpChess.Model
     #region Using
 
     using System;
-    using System.Collections;
+    using System.Collections.Generic;
 
     #endregion
 
     /// <summary>
     /// Holds a list of moves.
     /// </summary>
-    public class Moves : IEnumerable
+    public class Moves : IEnumerable<Move>
     {
         #region Constants and Fields
 
         /// <summary>
         /// The m_col moves.
         /// </summary>
-        private readonly ArrayList moves = new ArrayList(64);
+        private readonly List<Move> moves = new List<Move>(64);
 
         #endregion
 
@@ -244,10 +244,15 @@ namespace SharpChess.Model
         /// <returns>
         /// The enumerator for this list.
         /// </returns>
-        public IEnumerator GetEnumerator()
+        public IEnumerator<Move> GetEnumerator()
         {
             return this.moves.GetEnumerator();
         }
+
+		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator ();
+		}
 
         /// <summary>
         /// Insert a move into this list at the specified index position.
@@ -338,7 +343,7 @@ namespace SharpChess.Model
         /// <returns>
         /// The partition.
         /// </returns>
-        private static int Partition(ArrayList moveArray, int lower, int upper)
+        private static int Partition(List<Move> moveArray, int lower, int upper)
         {
             // Pivot with first element
             int left = lower + 1;
@@ -390,7 +395,7 @@ namespace SharpChess.Model
         /// <param name="upper">
         /// Upper bound
         /// </param>
-        private static void QuickSort(ArrayList moveArray, int lower, int upper)
+        private static void QuickSort(List<Move> moveArray, int lower, int upper)
         {
             // Check for non-base case
             if (lower < upper)

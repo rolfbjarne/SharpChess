@@ -38,7 +38,7 @@ namespace SharpChess.Model
         public PlayerWhite()
         {
             this.Colour = PlayerColourNames.White;
-            this.Intellegence = PlayerIntellegenceNames.Human;
+            this.Intelligence = PlayerIntelligenceNames.Human;
 
             this.SetPiecesAtStartingPositions();
         }
