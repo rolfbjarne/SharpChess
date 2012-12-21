@@ -109,7 +109,7 @@ namespace SharpChess.Model
         /// </example>
         public static string GetBoardPosition()
         {
-            Game.SuspendPondering();
+           // Game.SuspendPondering();
             var strbFen = new StringBuilder();
 
             // Field 1: Piece placement data
@@ -135,7 +135,7 @@ namespace SharpChess.Model
             // Field 6: Full move number
             strbFen.Append(((Game.TurnNo >> 1) + 1).ToString()); // Incremented at each move of Blacks
 
-            Game.ResumePondering();
+         //   Game.ResumePondering();
             return strbFen.ToString();
         }
 
